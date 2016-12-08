@@ -1,0 +1,11 @@
+- name: Home
+  path: "#top"
+  section_id: home
+- name: What We Do
+  path: "#about"
+- name: Who We Are
+  path: "#team"
+- name: Get Involved
+  path: "#"
+- name: Contact Us
+  path: "#contact"
