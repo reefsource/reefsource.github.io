@@ -15,13 +15,8 @@
   <link rel="stylesheet" href="css/font-awesome.css">
 
   <link rel="stylesheet" type="text/css" href="css/log_in_form.css">
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="javascripts/libs.js" type="text/javascript"></script>
-     <script src="javascripts/jquery.ui.widget.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.fileupload.js"></script>
-	<script type="text/javascript" src="javascripts/jquery.fileupload-process.js"></script>
-	 
-	<script type="text/javascript" src="javascripts/jquery.fileupload-ui.js"></script>
   <script>
     // terrificjs bootstrap
     (function($) {
@@ -49,20 +44,6 @@
 
 
 			// <!-------------------FEB 17--------------->
-        });
-        $('#notification_button').fileupload({
-        	
-        	dataType:'json',
-        	add: function(e, data){
-        		data.submit();
-        	},
-        	success: function(response, status){
-        		var filePath = 'Uploads/' + response.filename;
-        		console.log(filePath);
-        	},
-        	error: function(error){
-        		console.log(error);
-        	}
         });
     })(Tc.$);
   </script>
@@ -118,7 +99,6 @@
             
 <!--           	<li>
                 
-
             </li> -->
 <!--             <li>
             	<a href="" onclick="signOut();">Sign Out</a>
@@ -135,15 +115,6 @@
 	  	document.getElementById("user-db-button-text").style.display = "none";
 		window.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://reefsource.github.io";
 	  }
-
-	 //  function signOut() {
-  //   var auth2 = gapi.auth2.getAuthInstance();
-  //   auth2.signOut().then(function () {
-  //     console.log('User signed out.');
-  //   });
-  // }
-
-
 
 </script>
 
@@ -216,86 +187,138 @@
 </div>
 
 
-
 <div id="upload-btn" class="modal">
 	
 	<div class="upload-modal-content animate" action="action_page.php">
-		<div class="row">
-			<div class="large-8 columns">
-				<div class="image-input-box" id="image-input-box">
-					<div id="drag-text" style="text-align: center;margin-top: 25%; opacity: 0.8; color: grey;">
-						<p style="font-size: 2rem; font-weight: 4px;" id="notification">Drag images here.<p style="margin-left: 5%;margin-right: 5%;">We would appreciate if you drag the images captured in the same day and from the same location.</p></p>
-						<label for="notification_button" class="button round">Or choose from path.
-
-						<!-- --------------------FILE UPLOAD BUTTON--------------------- -->
-							<input type="file" id="notification_button" name="uploaded-images" class="show-for-sr" style="visibility: hidden;display: none;" multiple>
-						</label>
-
-					</div>
+			<!-- --------------------FEB 19--------------------- -->
+			<!-- <section class="content"> -->
+  <!-- <h1 class="content__heading">Send Me a Message</h1> -->
+  <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
+  <form class="content__form contact-form" action="server.php">
+  	<div class="row">
+		<div class="large-6 columns">
+			<div class="image-input-box-no" id="image-input-box-no">
+				<div id="drag-text" style="text-align: center;margin-top: 20%;margin-bottom: 20%; opacity: 0.8; color: grey;">
+					<p style="font-size: 1.5rem; font-weight: 4px;margin-left: 5%;margin-right: 5%;" id="notification">Now we only accpet <strong>1 image in a single upload.</strong> Sorry about the inconvenience.
+				<!-- 	<p style="margin-left: 5%;margin-right: 5%;">We would appreciate if you drag the images captured in the same day and from the same location.</p></p> -->
+					<div id="disappear">
+					  	<div class="testing">
+					  		<label for="image_upload" class="button round"> Choose from path.</label>
+					  	</div>
+					  	<div>
+					      <input id="image_upload" name="image_upload" type="file" required style="visibility: hidden;display: none;" />
+					    </div>
+				    </div>
 				</div>
-			</div>
-			<div class="large-4 columns">
-			    <div class="image-input-box" style="height: 84%;">
-			    	<div class="row">
-						<div class="small-12 columns" style="padding-top: 9%;padding-left: 9%; padding-right:9%;">
-							<label style="color: grey; font-weight: 3px;">Diving Date:</label>
-							<input type="date" name="" min="2000-01-02" required>
-						</div>
-					</div>
-					<div class="row" style="">
-						<div class="small-6 columns" style="padding-left: 9%;">
-							<label style="color: grey; font-weight: 9px;">Longitude:</label>
-							<input type="text" placeholder="Logitude" required>
-						</div>
-						<div class="small-6 columns" style="padding-right: 9%;">
-							<label style="color: grey; font-weight: 3px;">Latitude:</label>
-							<input type="text" placeholder="Latitude" required>
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="small-12 columns" style="padding-left: 9%; padding-right:9%;">
-							<label style="color: grey; font-weight: 3px;">How's your exprience?</label>
-							<input type="text" name="" style="line-height: 100%;" placeholder="We would like to hear from you.">
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="small-12 columns" style="padding-left: 9%; padding-right:9%;">
-							<label style="color: grey; font-weight: 3px;">Will you refer us to your friends?</label>
-							<input type="text" name="" style="line-height: 100%;" placeholder="Please do let us know.">
-						</div>
-					</div>
-				</div>
-				<!-- --------------------UPLOAD BUTTON type submit--------------------- -->
-					<label class="button round" type="submit" style="width: 100%;">UPLOAD</label>
 			</div>
 		</div>
-		<div class="row">
-			
+		<div class="large-6 columns">
+			<div class="image-input-box-no" id="image-input-box-no">
+			<div style="margin-left: 5%;margin-right: 5%;">
+			<br>
+		  	<div class="testing">
+		  		<div class="row" style="">
+					<div class="small-6 columns">
+						<span style="color: grey;">Longitude: *</span>
+						<input id="longitude" name="longitude" type="text"/ required>
+		      <!-- <p>Longitude: * </p> -->
+		      		</div>
+		      		<div class="small-6 columns">
+						<span style="color: grey;">Latitude: *</span>
+						<input id="latitude" name="latitude" type="text"/ required>
+		      <!-- <p>Longitude: * </p> -->
+		      		</div>
+		      	</div>
+		    </div>
+		    <br>
+		    <div class="row">
+				<div class="large-12 columns">
+			        <span style="color: grey; font-weight: 3px;">What's the coral type?(optional)</span>
+			    </div>
+			</div>
+		    <div>
+		      <input id="coral_type_Branching" name="coral_type" type="radio" value="Branching"/>
+		      <label style="color: grey; font-weight: 3px;" for="coral_type_Branching">Branching</label>
+		      <input id="coral_type_Boulder" name="coral_type" type="radio" value="Boulder"/>
+		      <label style="color: grey; font-weight: 3px;" for="coral_type_Boulder">Boulder</label>
+		      <input id="coral_type_Plate" name="coral_type" type="radio" value="Plat"/>
+		      <label style="color: grey; font-weight: 3px;" for="coral_type_Plate">Plate</label>
+		      <input id="coral_type_Soft" name="coral_type" type="radio" value="Soft"/>
+		      <label style="color: grey; font-weight: 3px;" for="coral_type_Soft">Soft</label>
+		    </div>
+		    <div class="row">
+				<div class="large-12 columns">
+			        <span style="color: grey; font-weight: 3px;">What is the brightness of the brightest part of the coral? (optional)</span>
+			    </div>
+			</div>
+		    <div>
+		      <input id="brightest_1" name="brightest" type="radio" value="1"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_1">1</label>
+
+		      <input id="brightest_2" name="brightest" type="radio" value="2"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_2">2</label>
+
+		      <input id="brightest_3" name="brightest" type="radio" value="3"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_3">3</label>
+
+		      <input id="brightest_4" name="brightest" type="radio" value="4"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_4">4</label>
+
+		      <input id="brightest_5" name="brightest" type="radio" value="5"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_5">5</label>
+
+		      <input id="brightest_6" name="brightest" type="radio" value="6"/>
+		      <label style="color: grey; font-weight: 3px;" for="brightest_6">6</label>
+		    </div>
+
+		    <div class="row">
+				<div class="large-12 columns">
+			        <span style="color: grey; font-weight: 3px;">What is the brightness of the darkest part of the coral? (optional)</span>
+			    </div>
+			</div>
+		    <div >
+		      <input id="darkest_1" name="darkest" type="radio" value="1"/>
+		      <label style="color: grey; font-weight: 3px;" for="darkest_1">1</label>
+
+		      <input id="darkest_2" name="darkest" type="radio" value="2"/>
+		      <label style="color: grey; font-weight: 3px;" for="darkest_2">2</label>
+
+		      <input id="darkest_3" name="darkest" type="radio" value="3"/>
+		      <label style="color: grey; font-weight: 3px;" for="darkest_3">3</label>
+
+		      <input id="darkest_4" name="darkest" type="radio" value="4"/>
+		      <label style="color: grey; font-weight: 3px;" for="darkest_4">4</label>
+
+		      <input id="darkest_5" name="darkest" type="radio" value="5"/>
+		      <label style="color: grey; font-weight: 3px;"  for="darkest_5">5</label>
+
+		      <input id="darkest_6" name="darkest" type="radio" value="6"/>
+		      <label style="color: grey; font-weight: 3px;" for="darkest_6">6</label>
+
+		    </div>
+		    
+		    <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
+		    </div>
+			</div>
+		</div>
+		<button class="button round" type="submit" id="send_btn" style="margin-top: 2%;width: 50%; margin-left: 25%; margin-right: 25%;">Send It!</button>
+    </div>
+  </form>
+<!-- </section> -->
+</div>
 		</div>
 	</div>
 </div>
 
-<!-- --------------------FEB 17--------------------- -->
-
-<!-- --------------------FEB 17--------------------- -->
-
-
 <script type="text/javascript">
 	
 	(function(){
-		l = 0
 
-		document.getElementById("notification_button").addEventListener("change", function() {
+		document.getElementById("image_upload").addEventListener("change", function() {
 			if (this.files.length > 0){
-				l = l + this.files.length;
-				if(l != 1) {
-					document.getElementById("notification").innerHTML = l.toString() + " images to upload. Add more?";
-				}
-				else {
-					document.getElementById("notification").innerHTML = l.toString() + " image to upload. Add more?";
-				}
+				document.getElementById("notification").innerHTML = "<strong>1 image</strong> was selected. Please fill in the related information on right side."
+				// document.getElementById("path_note").style.display = "none";
+				document.getElementById("disappear").style.display = "none";
 			}
 		});
 
@@ -305,21 +328,16 @@
 	      e.preventDefault();
 	      this.className = 'image-input-box';
 	      document.getElementById("drag-text").style.color = "grey";
-	      t = e.dataTransfer.files.length;
-
-	      l = l + t;
-	      // console.log(l);
-	      	if (l > 1){
-	      		document.getElementById("notification").innerHTML = l.toString() + " images to upload. Add more?";
-	  		}
-	  		else{
-	  			document.getElementById("notification").innerHTML = l.toString() + " image to upload. Add more?";
-	  		}
+	      if(e.dataTransfer.files.length == 1){
+	      	document.getElementById("notification").innerHTML = "An image was selected. Please fill in the related information on right side."
+	      	// document.getElementsById([0.setAttribute("class", "democlass");
+	      	document.getElementById("disappear").style.display = "none";
+	      }
+	    
 	    };
 		dropzone.ondragover = function(){
 			document.getElementById("drag-text").style.color = 'black';		
 			this.className = 'image-input-box dragover';
-
 			return false;
 		}
 		dropzone.ondragleave = function(){
@@ -342,8 +360,6 @@ window.onclick = function(event) {
 }
 </script>
 
-
-
 <div class='full no-padding' style='background: #4D4F53; color: #fff'>
   <div class='two spacing'></div>
   <div class='row'>
@@ -354,6 +370,8 @@ window.onclick = function(event) {
   <div class='spacing'></div>
 </div>
     </div>
+
+<script type="text/javascript" src="javascripts/upload_image.js" ></script>
 
     <script src="javascripts/jquery.countTo.js" type="text/javascript"></script>
 <script src="javascripts/jquery.appear.js" type="text/javascript"></script>
