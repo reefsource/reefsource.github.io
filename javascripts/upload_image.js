@@ -133,6 +133,8 @@ const handleFormSubmit = event => {
   xhr.send(data);
 
   modal.style.display = "none";
+  upload_handler.style.display = "block";
+  notification.innerHTML = "Now we only accpet <strong>1 image in a single upload.</strong> Sorry about the inconvenience.</p>"
   // Demo only: print the form data onscreen as a formatted JSON object.
   // const dataContainer = document.getElementsByClassName('results__display')[0];
   
@@ -150,4 +152,6 @@ const handleFormSubmit = event => {
 const form = document.getElementsByClassName('contact-form')[0];
 form.addEventListener('submit', handleFormSubmit);
 var modal = document.getElementById('upload-btn');
+var upload_handler = document.getElementById("disappear");
+var notification = document.getElementById("notification");
   // When the user clicks anywhere outside of the modal, close it
