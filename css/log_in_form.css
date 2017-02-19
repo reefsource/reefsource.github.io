@@ -30,7 +30,7 @@
   .imgcontainer {
       padding-top: 0px;
       text-align: center;
-      margin: 24px 0 12px 0;
+      /*margin: 24px 0 12px 0;*/
       position: relative;
   }
   .image-container{
@@ -159,6 +159,23 @@
       color: green;
       cursor: pointer;
   }
+
+.drop_down_landing{
+
+  width: auto;
+  /*height: auto;*/
+
+  a {
+    font-weight: $topbar-dropdown-link-weight;
+    padding: 8px $topbar-link-padding;
+    &.parent-link {
+      font-weight: $topbar-link-weight;
+    }
+  }
+}
+.top-bar-section .dropdown .drop_down_landing {
+  height: 1rem;
+}
 #more-info{
   height: 100px;
 }

@@ -69,19 +69,7 @@
     <section class='top-bar-section'>
       <ul class='right'>
         
-            <li>
-              <!--  -->
-              <a href="dashboard.html" data-dropdown="hover1" data-options="is_hover:true;" id="user_on_page" class="user_on_page" style="display: none;">LOG IN
-              </a>
-              <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                <li><a href="dashboard.html">My Dashboard</a></li>
-              </ul>
 
-
-
-
-
-            </li>
 
             <li>
               
@@ -120,7 +108,30 @@
               
 
             </li>
+<!--             <li class="drop_down_landing" >
+
+              <a href="dashboard.html" data-dropdown="hover1" data-options="is_hover:true;" id="user_on_page" class="user_on_page" style="display: none;">LOG IN
+              </a>
+              <ul id="hover1" class="f-dropdown" data-dropdown-content>
+                <li><a href="dashboard.html" style="width: 200px;">My Dashboard</a></li>
+              </ul>
+
+
+
+
+
+            </li> -->
           
+            <li>
+              <a href="dashboard.html" id="user_on_page" data-dropdown="hover1" data-options="is_hover:true;" class="user_on_page" style="display: none;background-color: #343c55;color: lightgrey; ">LOG IN</a>
+              </a>
+              <ul id="hover1" class="f-dropdown" data-dropdown-content>
+                <li><a href="dashboard.html" class="upload-btn-nav"  style="background-color: #343c55;color: lightgrey;font-size: 0.7rem;">
+                  DASHBOARD
+                </a></li>
+                <!-- <li><a href="index.html" onclick="signOut();">Sign Out</a></li> -->
+              </ul>
+            </li>
       </ul>
     </section>
   </nav>
@@ -154,7 +165,7 @@
           <div class='buttons-wrapper'>
 
               <a class='button small' href='#about'>Learn More</a>
-              <button id="contribute_btn" class="button small" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Contribute Photos</button>
+              <button id="contribute_btn_2" class="button small" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Contribute Photos</button>
               <!-- <a class='button small' href='showSignUp'>Contribute Photos (Coming Soon)</a> -->
           </div>
             <div class='bg' style='background-image: url(images/ocean-dan-gold.jpg);'></div>
@@ -175,8 +186,8 @@
 <!--       <p style="font-size:1.5em;color: #343c55;margin-top: 10px;"><strong>RE</strong>EF<strong>SOURCE</strong></p> -->
       <!-- <img src="../static/images/Reefsource_logo_v1.png" alt="Avatar" class="avatar"> -->
     </div>
-    <div class="row" style="padding-bottom: 5%;">
-      <div class="large-5 columns" style="padding-left: 5%;border-right: 1px solid #343c55;padding-right: 5%">
+    <div class="row" style="padding: 10%;">
+      <div class="large-8 columns" style="padding-left: 5%;border-right: 1px solid #343c55;padding-right: 15%">
         <p style="font-size:1.3em;color: #343c55;margin-top: 10px;border-left: 6px solid #343c55;"><strong>&nbspWHY &nbspCONTRIBUTE</strong></p>
         <p style="font-family: sans-serif;font-weight: lighter;font-size:14px; color: #343c55;">By uploading your photos, you will be contributing toward a public, nonprofit effort to better understand the health of the world's coral reefs. Thank you for participating.</p>
         <p style="text-align: right;font-family: sans-serif;font-weight: lighter;font-size: 14px;color: #343c55;"><strong>RE</strong>EF<strong>SOURCE</strong> Team</p>
@@ -184,25 +195,27 @@
         
          <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
       </div>
-      <div class="large-6 columns" style="padding-left: 5%;"">
-        <div class="row">
-          <div class="small-6 columns signin-btn" >
-            <label class="signin-btn-text" style="color: #343c55;padding-top: 5%;font-size: 1.5rem; font-weight: 3px;">SIGN IN</label>
+      <div class="large-4 columns" style="padding-left: 10%;"">
+        <!-- <div class="row"> -->
+          <div class="small-12 columns" style="margin-top: 5%; margin-bottom: 25%">
+            <span style="color: #343c55;font-size: 1.5rem; font-weight: 3px;">SIGN IN</span>
           </div>
-          <div class="small-6 columns signup-btn">
+          <br >
+          <br>
+          <div style="margin-top: 5%;" class="g-signin2" data-onsuccess="onSignIn">
+          <!-- </div> -->
+<!--           <div class="small-6 columns signup-btn">
             <label class="signup-btn-text" style="color: #343c55;padding-top: 5%;font-size: 1.5rem; font-weight: 3px;">SIGN UP</label>
-          </div>
-        </div>
-        <div class="row signin-box" style="padding-top: 15%;">
-          <div class="small-6 columns">
+          </div> -->
+        <!-- </div> -->
+        <!-- <div class="row signin-box" style="padding-top: 15%;"> -->
+          <!-- <div class="small-6 columns">
             <label style="padding-top: 20%; padding-bottom: 2%; text-align: center; color: #343c55;">Sign in with Google.</label> 
-          </div>
-          <div class="small-6 columns" style="padding-top: 10%; padding-bottom: 2%;"">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="large-1 columns">
+          </div> -->
+          
+            <!-- <div class="g-signin2" ></div> -->
+          <!-- </div> -->
+        <!-- </div> -->
       </div>
     </div>
     <!-- </div> -->
@@ -210,6 +223,7 @@
 </div>
 
 <script type="text/javascript">
+
   function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
@@ -223,15 +237,48 @@
     localStorage.setItem('lists', JSON.stringify(listvalues)); 
     document.getElementById("user_on_page").style.display = "block";
     document.getElementById("user_on_page").innerHTML = "Hi, " + profile.getName().split(" ")[0];
+    // document.getElementById('contribute_btn').addClass = "userlogin";
     document.getElementById('id01').style.display = "none";
     document.getElementById('id01').action="action_page.php";
-    console.log("here");
+    // document.getElementById('contribute_btn').style.display = "none";
+    // document.getElementById('contribute_btn_2').style.display = "none";
+    document.getElementById('contribute_btn_2').onclick = function (){window.location.href = "dashboard.html";};
+    document.getElementById('contribute_btn').onclick = function (){window.location.href = "dashboard.html";};
+    // if document.getElementById()
+
+    console.log("here user login");
+
     // window.location.href="dashboard.html";
   }
+
 </script>
+<script type="text/javascript">
+  // var target = document.getElementById('contribute_btn');
 
+  // var observer = new MutationObserver(function(mutations) {
+    
+  //   mutations.forEach(function(mutation) {
+  //     console.log(mutation.type);
+  //   });
+  // });
 
+  // var config = {
+  //   attributes: true,
+  //   childList: false,
+  //   characterData: false
+  // };
 
+  // observer.observe(target, config);
+
+  // // otherwise
+  // observer.disconnect();
+  // observer.observe(target, config);
+  // var user_on_page = document.getElementById("user_on_page");
+  // var contribute_btn = document.getElementById('contribute_btn');
+  // if (user_on_page.style.display == "block"){
+  //     console.log("button block");
+  // }
+</script>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');

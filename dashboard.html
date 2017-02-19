@@ -87,11 +87,11 @@
             	<a href="index.html">HOME</a>
             </li>
             <li>
-            	<a href="#user_profile" id="user-db-button-text" data-dropdown="hover1" data-options="is_hover:true;" class="user_db_button">LOG IN</a>
+            	<a href="#user_profile" id="user-db-button-text" data-dropdown="hover1" data-options="is_hover:true;" class="user_db_button" style="border:2px solid #343c55;background-color: #343c55;color: lightgrey;">LOG IN</a>
               </a>
               <ul id="hover1" class="f-dropdown" data-dropdown-content>
               	<li><a href="#upload" class="upload-btn-nav" onclick="document.getElementById('upload-btn').style.display='block'" style="border:2px solid #343c55;background-color: #343c55;color: lightgrey;">
-              		UPLOAD
+              		UPLOAD IMAGES
               	</a></li>
                 <li><a href="index.html" onclick="signOut();">Sign Out</a></li>
               </ul>
@@ -121,9 +121,9 @@
 
 <!-- --------------------FEB 16--------------------- -->
 <div class='bg' style='background-image: url(images/newgrid_pic.png); width: 100%; height: 30%; background-size: cover; background-repeat: repeat;'>
-	<div style="color:#343c55;font-size: 2rem;text-align: center; padding-top: 4%; position: relative;">You have uploaded 100 images to us. We really appreciate your contributions.</div>
+	<div style="color:#343c55;font-size: 2rem;text-align: center; padding-top: 4%; position: relative;">You have uploaded 100 images to us. Hooray!</div>
 	<div style="text-align: center;">
-	<button class="button round" onclick="document.getElementById('upload-btn').style.display='block'" style="width: auto;margin: 2% auto;">MAKE CONTRIBUTIONS</button>
+	<button class="button round" onclick="document.getElementById('upload-btn').style.display='block'" style="width: auto;margin: 2% auto;">UPLOAD IMAGES</button>
 </div>
 </div>
 
@@ -322,29 +322,38 @@
 			}
 		});
 
-		var dropzone = document.getElementById("image-input-box");
 
-		dropzone.ondrop = function(e){
-	      e.preventDefault();
-	      this.className = 'image-input-box';
-	      document.getElementById("drag-text").style.color = "grey";
-	      if(e.dataTransfer.files.length == 1){
-	      	document.getElementById("notification").innerHTML = "An image was selected. Please fill in the related information on right side."
-	      	// document.getElementsById([0.setAttribute("class", "democlass");
-	      	document.getElementById("disappear").style.display = "none";
-	      }
+		//-------------------------------------------------------------------------
+		//-------------------------------------------------------------------------
+		//-------------------------------------------------------------------------
+		// <!-- -------------------Not being used for now.------------------------>
+		//-------------------------------------------------------------------------
+		//-------------------------------------------------------------------------
+		//-------------------------------------------------------------------------
+
+		// var dropzone = document.getElementById("image-input-box");
+
+		// dropzone.ondrop = function(e){
+	 //      e.preventDefault();
+	 //      this.className = 'image-input-box';
+	 //      document.getElementById("drag-text").style.color = "grey";
+	 //      if(e.dataTransfer.files.length == 1){
+	 //      	document.getElementById("notification").innerHTML = "An image was selected. Please fill in the related information on right side."
+	 //      	// document.getElementsById([0.setAttribute("class", "democlass");
+	 //      	document.getElementById("disappear").style.display = "none";
+	 //      }
 	    
-	    };
-		dropzone.ondragover = function(){
-			document.getElementById("drag-text").style.color = 'black';		
-			this.className = 'image-input-box dragover';
-			return false;
-		}
-		dropzone.ondragleave = function(){
-			this.className = 'image-input-box';
-			document.getElementById("drag-text").style.color = "grey";
-			return false;
-		}
+	 //    };
+		// dropzone.ondragover = function(){
+		// 	document.getElementById("drag-text").style.color = 'black';		
+		// 	this.className = 'image-input-box dragover';
+		// 	return false;
+		// }
+		// dropzone.ondragleave = function(){
+		// 	this.className = 'image-input-box';
+		// 	document.getElementById("drag-text").style.color = "grey";
+		// 	return false;
+		// }
 	}());
 </script>
 
