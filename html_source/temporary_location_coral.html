@@ -75,7 +75,7 @@
     position: absolute;
     right: 7px;
     width: 90px;
-    height: 130px;
+    height: 110px;
     z-index: 1;
 }
 .legend div span {
@@ -136,7 +136,7 @@
             <p>Right click and use mouse to spin.</p>
             <p>Hold shift key, click and drag to draw a bounding box to zoom to an area.</p>
         <p><strong>About Coral Health</strong></p>
-    <p><a href = "http://www.coralwatch.org/web/guest/home1">Coral Watch</a>.</p>
+	<p><a href = "http://www.coralwatch.org/web/guest/home1">Coral Watch</a>.</p>
             <p><a href = "http://coralreef.noaa.gov">NOAA Conservation Program</a>.</p>
 
     </div>
@@ -148,13 +148,12 @@
 </div>
 
 <div id='legend' class='legend'>
-    <strong>Darkest Color</strong><br>
-    <div><span style='background-color: #CDFF72'></span>Score 1</div>
-    <div><span style='background-color: #B8FF34'></span>Score 2</div>
-    <div><span style='background-color: #98DE15'></span>Score 3</div>
-    <div><span style='background-color: #6EA30B'></span>Score 4</div>
-    <div><span style='background-color: #446702'></span>Score 5</div>
-    <div><span style='background-color: #1F2E03'></span>Score 6</div>
+    <strong>Average Score</strong><br>
+    <div><span style='background-color: #FFA3A3'></span>1 - Unhealthy</div>
+    <div><span style='background-color: #E88282'></span>2</div>
+    <div><span style='background-color: #B12B2B'></span>3</div>
+    <div><span style='background-color: #8A0000'></span>4</div>
+    <div><span style='background-color: #3A0303'></span>5 - Healthy</div>
 </div>
 
 <script>
@@ -165,7 +164,7 @@ if (!mapboxgl.supported()) {
 
     var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/kaltenburger/ciydj5z7c002p2sp7bwy8sp4z',
+        style: 'mapbox://styles/kaltenburger/cizd4uqnr004x2roidb2rxz3m',
         center: [122.7832, -13.5418], // starting position
         minZoom: 3, // minimum zoom
         zoom: 3, // starting zoom
