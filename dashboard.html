@@ -30,20 +30,49 @@
             var application = new Tc.Application($page, config);
             application.registerModules();
             application.start();
-    		
+
     		// <!-----------------Feb 17----------------->
 
 
             var listvalues = localStorage.getItem('lists');
-			//pase the value 
-			var finalvalue = JSON.parse(listvalues);
-			var user_name_first_name = finalvalue.Name.split(" ")[0];
-			var user_name_last_name = finalvalue.Name.split(" ")[1];
-			var user_email = finalvalue.Email;
-			document.getElementById("user-db-button-text").innerHTML = "Hi, " + user_name_first_name;
+			//pase the value
+            if (listvalues) {
+    			var finalvalue = JSON.parse(listvalues);
+                var user_name_first_name = finalvalue.Name.split(" ")[0];
+                var user_name_last_name = finalvalue.Name.split(" ")[1];
+                var user_email = finalvalue.Email;
+                document.getElementById("user-db-button-text").innerHTML = "Hi, " + user_name_first_name;
+            }
 
 
 			// <!-------------------FEB 17--------------->
+
+            // load images
+
+            var apiURL = 'api/sessions/' + sessionId + '/acquisitions';
+            $.ajax({
+                'type': 'GET',
+                url: apiURL,
+                headers: headersAPI
+            }).then((acquisitions)=>{
+                acquisitions.forEach((acq) => {
+                    console.log(acq);
+                    acq.files.forEach((f) => {
+                        if (f.type == 'jpeg') {
+                            var li = document.createElement('li');
+                            $('show_albums ul').append(li);
+                            var url = 'api/acquisitions/' + acq._id + '/files/' + f.name;
+                            $.ajax({
+                                'type': 'GET',
+                                'url': url,
+                                'headers': headersAPI
+                            }).then((content) => {
+                                console.log(content);
+                            });
+                        }
+                    });
+                })
+            });
         });
     })(Tc.$);
   </script>
@@ -62,7 +91,7 @@
 
 
   <body>
-    
+
       <a id='top'></a>
 <div class='contain-to-grid sticky fullwidth'>
   <nav class='top-bar onepage' data-options='sticky_on: large' data-topbar=''>
@@ -80,9 +109,9 @@
     </ul>
     <section class='top-bar-section'>
       <ul class='right'>
-        
-          
-            
+
+
+
       		<li>
             	<a href="index.html">HOME</a>
             </li>
@@ -96,9 +125,9 @@
                 <li><a href="index.html" onclick="signOut();">Sign Out</a></li>
               </ul>
             </li>
-            
+
 <!--           	<li>
-                
+
             </li> -->
 <!--             <li>
             	<a href="" onclick="signOut();">Sign Out</a>
@@ -153,27 +182,7 @@
 
 <div id="show_albums" class="row" style=" text-align:center; padding-left: 3%;padding-top: 2%; padding-bottom: 2%;">
 	<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-	  <li><!-- Your content goes here -->
-	  	<div class="image-container">
-				<img src="images/2.jpg">
-			</div>
-	  </li>
-	  <li><!-- Your content goes here -->
-	  	<div class="image-container">
-				<img src="images/2.jpg">
-			</div>
-	  </li>
-	  <li><!-- Your content goes here -->
-	  	<div class="image-container">
-				<img src="images/2.jpg">
-			</div>
-	  </li>
-	  <li><!-- Your content goes here -->
-	  	<div class="image-container">
-				<img src="images/2.jpg">
-			</div>
-	  </li>
-	  <li><!-- Your content goes here -->
+	  <!--li>
 	  	<div class="image-container">
 				<img src="images/2.jpg">
 			</div>
@@ -183,18 +192,38 @@
 				<img src="images/2.jpg">
 			</div>
 	  </li>
+	  <li>
+	  	<div class="image-container">
+				<img src="images/2.jpg">
+			</div>
+	  </li>
+	  <li>
+	  	<div class="image-container">
+				<img src="images/2.jpg">
+			</div>
+	  </li>
+	  <li>
+	  	<div class="image-container">
+				<img src="images/2.jpg">
+			</div>
+	  </li>
+	  <li>
+	  	<div class="image-container">
+				<img src="images/2.jpg">
+			</div>
+	  </li-->
 	</ul>
 </div>
 
 
 <div id="upload-btn" class="modal">
-	
+
 	<div class="upload-modal-content animate" action="action_page.php">
 			<!-- --------------------FEB 19--------------------- -->
 			<!-- <section class="content"> -->
   <!-- <h1 class="content__heading">Send Me a Message</h1> -->
   <!-- <p class="content__lede">Use this handy contact form to get in touch with me.</p> -->
-  <form class="content__form contact-form" action="server.php">
+  <form class="content__form contact-form" action="">
   	<div class="row">
 		<div class="large-6 columns">
 			<div class="image-input-box-no" id="image-input-box-no">
@@ -296,7 +325,7 @@
 		      <label style="color: grey; font-weight: 3px;" for="darkest_6">6</label>
 
 		    </div>
-		    
+
 		    <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/>
 		    </div>
 			</div>
@@ -311,7 +340,7 @@
 </div>
 
 <script type="text/javascript">
-	
+
 	(function(){
 
 		document.getElementById("image_upload").addEventListener("change", function() {
@@ -342,10 +371,10 @@
 	 //      	// document.getElementsById([0.setAttribute("class", "democlass");
 	 //      	document.getElementById("disappear").style.display = "none";
 	 //      }
-	    
+
 	 //    };
 		// dropzone.ondragover = function(){
-		// 	document.getElementById("drag-text").style.color = 'black';		
+		// 	document.getElementById("drag-text").style.color = 'black';
 		// 	this.className = 'image-input-box dragover';
 		// 	return false;
 		// }

@@ -1,3 +1,8 @@
+const sessionId = '58a3b61ddc313a776756bb5c';
+
+const urlAPI = 'api/acquisitions';
+
+const headersAPI = {'Authorization': 'scitran-user test'}
 /**
  * Checks that an element has a non-empty `name` and `value` property.
  * @param  {Element} element  the element to check
@@ -49,28 +54,28 @@ const getSelectValues = options => [].reduce.call(options, (values, option) => {
  * @return {Object}                               form data as an object literal
  */
 const formToJSON_deconstructed = elements => {
-  
+
   // This is the function that is called on each element of the array.
   const reducerFunction = (data, element) => {
-    
+
     // Add the current field to the object.
     data[element.name] = element.value;
-    
+
     // For the demo only: show each step in the reducer’s progress.
     console.log(JSON.stringify(data));
 
     return data;
   };
-  
+
   // This is used as the initial value of `data` in `reducerFunction()`.
   const reducerInitialValue = {};
-  
+
   // To help visualize what happens, log the inital value, which we know is `{}`.
   console.log('Initial `data` value:', JSON.stringify(reducerInitialValue));
-  
+
   // Now we reduce by `call`-ing `Array.prototype.reduce()` on `elements`.
   const formData = [].reduce.call(elements, reducerFunction, reducerInitialValue);
-  
+
   // The result is then returned for use elsewhere.
   return formData;
 };
@@ -107,46 +112,90 @@ const formToJSON = elements => [].reduce.call(elements, (data, element) => {
  * @return {void}
  */
 const handleFormSubmit = event => {
-  
+
   // Stop the form from submitting since we’re handling that with AJAX.
   event.preventDefault();
-  
+
   // Call our function to get the form data.
   const data = formToJSON(form.elements);
 
-  alert(JSON.stringify(data, null, "  "));
-  // console.log(data);
+  //alert(JSON.stringify(data, null, "  "));
+  console.log(data);
 
-  var xhr = new XMLHttpRequest();
-  //open the connection
-  xhr.open('POST', 'server.php', true);
-  //set up a handler for when the request finishes.
-  xhr.onload = function(){
-    if (xhr.status === 200){
-      // file uploaded
-      uploadButton.innerHTML = 'Upload';
-    }else{
-      alert('An error occurred!');
-    }
+  var files = form.elements.image_upload.files;
+
+  if (files.length != 1) {
+    console.error('There should be exactly one file to upload.');
+  }
+
+  // creating the acquisition that will contain the file
+
+  var payload = {
+    label: files[0].name.split('.')[0],
+    session: sessionId,
+    info: data
   };
-  //send the data
-  xhr.send(data);
+  var req = {
+    type: 'POST',
+    url: urlAPI,
+    data: JSON.stringify(payload),
+    headers: headersAPI
+    /*success: (response) => {
+        console.log(response);
+        return;
+        var payload = new FormData();
+        payload.append('file', files[0]);
+        payload.append('metadata', JSON.stringify(data, null, "  "));
+        $.ajax({
+          url: '',
+          data: formData,
+          processData: false,
+          contentType: false,
+          type: 'POST',
+          success: function () {
+              console.log('upload succesfull');
+          },
+          error: () => {console.error('You made a mistake. Bad!');}
+        });
+    },
+    error: () => {console.error('You made a mistake. Bad!');}*/
+  };
+  $.ajax(req).then((response) => {
+    console.log(response);
+    var payload = new FormData();
+    payload.append('file', files[0]);
+    var req = {
+      url: urlAPI + '/' + response._id + '/files',
+      data: payload,
+      headers: headersAPI,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function () {
+        console.log('upload succesfull');
+      },
+      error: () => {console.error('You made a mistake. Bad!');}
+    };
+    $.ajax(req);
+  });
+
+
 
   modal.style.display = "none";
   upload_handler.style.display = "block";
   notification.innerHTML = "Now we only accpet <strong>1 image in a single upload.</strong> Sorry about the inconvenience.</p>"
   // Demo only: print the form data onscreen as a formatted JSON object.
   // const dataContainer = document.getElementsByClassName('results__display')[0];
-  
+
   // Use `JSON.stringify()` to make the output valid, human-readable JSON.
   // dataContainer.textContent = JSON.stringify(data, null, "  ");
-  
+
   // ...this is where we’d actually do something with the form data...
 };
 
 /*
  * This is where things actually get started. We find the form element using
- * its class name, then attach the `handleFormSubmit()` function to the 
+ * its class name, then attach the `handleFormSubmit()` function to the
  * `submit` event.
  */
 const form = document.getElementsByClassName('contact-form')[0];
