@@ -140,30 +140,14 @@ const handleFormSubmit = event => {
     url: urlAPI,
     data: JSON.stringify(payload),
     headers: headersAPI
-    /*success: (response) => {
-        console.log(response);
-        return;
-        var payload = new FormData();
-        payload.append('file', files[0]);
-        payload.append('metadata', JSON.stringify(data, null, "  "));
-        $.ajax({
-          url: '',
-          data: formData,
-          processData: false,
-          contentType: false,
-          type: 'POST',
-          success: function () {
-              console.log('upload succesfull');
-          },
-          error: () => {console.error('You made a mistake. Bad!');}
-        });
-    },
-    error: () => {console.error('You made a mistake. Bad!');}*/
   };
   $.ajax(req).then((response) => {
     console.log(response);
     var payload = new FormData();
     payload.append('file', files[0]);
+    var metadata = {'type': 'gopro'};
+    var blob = new Blob([JSON.stringify(metadata, null, 2)], {type : 'application/json'});
+    payload.append('metadata', blob, '');
     var req = {
       url: urlAPI + '/' + response._id + '/files',
       data: payload,
