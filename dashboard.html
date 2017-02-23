@@ -58,16 +58,21 @@
                 acquisitions.forEach((acq) => {
                     console.log(acq);
                     acq.files.forEach((f) => {
-                        if (f.type == 'jpeg') {
+                        if (f.type == 'image') {
                             var li = document.createElement('li');
-                            $('show_albums ul').append(li);
-                            var url = 'api/acquisitions/' + acq._id + '/files/' + f.name;
+                            $('#show_albums ul').append(li);
+                            var url = 'api/acquisitions/' + acq._id + '/files/' + f.name + '?ticket=';
                             $.ajax({
                                 'type': 'GET',
                                 'url': url,
                                 'headers': headersAPI
                             }).then((content) => {
                                 console.log(content);
+                                var div = document.createElement('div');
+                                var img = document.createElement('img');
+                                img.src = url + content.ticket;
+                                div.append(img)
+                                li.append(div);
                             });
                         }
                     });
