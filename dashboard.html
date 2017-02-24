@@ -62,7 +62,7 @@
                             var li = document.createElement('li');
                             $('#show_albums ul').append(li);
                             var url = 'api/acquisitions/' + acq._id + '/files/' + f.name + '?ticket=';
-                            var info_acq = acq.info;
+                            var info_acq = acq._info;
                             $.ajax({
                                 'type': 'GET',
                                 'url': url,
@@ -74,7 +74,8 @@
                                 var p = document.createElement('p');
                                 // var for_p = 'api/acquisitions/' + acq._id + '/files/' + f.name
                                 console.log("text");
-                                console.log(info_acq);
+                                var metadata = apiURL + '?info=true';
+                                console.log(metadata);
 
                                 p.innerHTML = f.name;
                                 p.className += " imgDescription";
