@@ -71,6 +71,32 @@
                                 var p = document.createElement('p');
                                 // var for_p = 'api/acquisitions/' + acq._id + '/files/' + f.name
                                 console.log(f.info);
+                                
+                                img.id = "img_myImg";
+                                var div_modal = document.createElement('div');
+                                var span = document.createElement('span');
+                                var img_modal = document.createElement("img");
+                                var caption_modal = document.createElement("div");
+                                caption_modal.id = "caption";
+                                img_modal.src = url + content.ticket;
+                                img_modal.className = "img_dash_modal-content";
+                                img_modal.id = "img_dash";
+                                img_modal.onclick = function(){
+                                	div_modal.style.display = "block";
+                                	caption_modal.innerHTML = f.name;
+                                }
+                                span.className += "close";
+                                span.innerHTML = "&times;";
+                                span[0].onclick = function(){
+                                	div_modal.style.display = "none";
+                                }
+                                div_modal.className += " img_dash_modal";
+                                div_modal.id = 'img_dash_Modal';
+                                div_modal.append(span);
+                                div_modal.append(img_modal);
+                                div_modal.append(caption_modal);
+
+
                                 p.innerHTML = f.name;
                                 p.className += " imgDescription";
                                 div.className += " image-container";
