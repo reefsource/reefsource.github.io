@@ -75,7 +75,7 @@
                                 var div = document.createElement('div');
                                 var img = document.createElement('img');
                                 var p = document.createElement('p');
-                                p.innerHTML = f.name +"Created Time: " + createdat + '&nbsplatitude:&nbsp'+latitude+"&nbsplongitude:&nbsp"+longitude;
+                                p.innerHTML = f.name +"Created Time: " + createdat[:10] + '&nbsplatitude:&nbsp'+latitude+"&nbsplongitude:&nbsp"+longitude;
                                 p.className += " imgDescription";
                                 div.className += " image-container";
                                 div.className += " imgWrap";
