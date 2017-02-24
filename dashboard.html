@@ -56,9 +56,10 @@
             	var count = 0;
                 acquisitions.forEach((acq) => {
                 	count += 1
+                	var latitude = acq.info.latitude;
+                	var longitude = acq.info.longitude;
                     console.log(acq);
-                    console.log('info');
-                    console.log(acq.info);
+                    // console.log(acq.info);
                     acq.files.forEach((f) => {
                         if (f.type == 'image') {
                             var li = document.createElement('li');
@@ -73,7 +74,7 @@
                                 var div = document.createElement('div');
                                 var img = document.createElement('img');
                                 var p = document.createElement('p');
-                                p.innerHTML = f.name;
+                                p.innerHTML = 'latitude:'+latitude+",longitude:"+longitude;
                                 p.className += " imgDescription";
                                 div.className += " image-container";
                                 div.className += " imgWrap";
