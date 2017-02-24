@@ -58,6 +58,7 @@
                 	count += 1
                 	var latitude = acq.info.latitude;
                 	var longitude = acq.info.longitude;
+                	var createdat = acq.info.created;
                     console.log(acq);
                     // console.log(acq.info);
                     acq.files.forEach((f) => {
@@ -74,7 +75,7 @@
                                 var div = document.createElement('div');
                                 var img = document.createElement('img');
                                 var p = document.createElement('p');
-                                p.innerHTML = 'latitude:&nbsp'+latitude+"&#09longitude:&nbsp"+longitude;
+                                p.innerHTML = f.name +"Created Time: " + createdat + '&nbsplatitude:&nbsp'+latitude+"&nbsplongitude:&nbsp"+longitude;
                                 p.className += " imgDescription";
                                 div.className += " image-container";
                                 div.className += " imgWrap";
