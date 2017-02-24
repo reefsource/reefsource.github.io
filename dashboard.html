@@ -57,6 +57,8 @@
                 acquisitions.forEach((acq) => {
                 	count += 1
                     console.log(acq);
+                    console.log('info');
+                    console.log(acq.info);
                     acq.files.forEach((f) => {
                         if (f.type == 'image') {
                             var li = document.createElement('li');
@@ -67,15 +69,10 @@
                                 'url': url,
                                 'headers': headersAPI
                             }).then((content) => {
-                                console.log(content);
+                                // console.log(content);
                                 var div = document.createElement('div');
                                 var img = document.createElement('img');
                                 var p = document.createElement('p');
-                                // var for_p = 'api/acquisitions/' + acq._id + '/files/' + f.name
-                                console.log("text");
-                                // var metadata = apiURL + '?info=true';
-                                // console.log('?info=tru);
-
                                 p.innerHTML = f.name;
                                 p.className += " imgDescription";
                                 div.className += " image-container";
