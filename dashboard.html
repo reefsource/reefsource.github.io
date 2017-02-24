@@ -53,7 +53,9 @@
                 url: apiURL,
                 headers: headersAPI
             }).then((acquisitions)=>{
+            	var count = 0;
                 acquisitions.forEach((acq) => {
+                	count += 1
                     console.log(acq);
                     acq.files.forEach((f) => {
                         if (f.type == 'image') {
@@ -84,6 +86,7 @@
                         }
                     });
                 })
+                document.getElementById("total_contribute_image").innerHTML = "You have uploaded " + count + " images to us. Hooray!"
             });
             // <!-----------------Feb 17----------------->
         });
@@ -163,7 +166,7 @@
 
 <!-- --------------------FEB 16--------------------- -->
 <div class='bg' style='background-image: url(images/newgrid_pic.png); width: 100%; height: 30%; background-size: cover; background-repeat: repeat;'>
-	<div style="color:#343c55;font-size: 2rem;text-align: center; padding-top: 4%; position: relative;">You have uploaded 100 images to us. Hooray!</div>
+	<div id="total_contribute_image" style="color:#343c55;font-size: 2rem;text-align: center; padding-top: 4%; position: relative;">You have uploaded 100 images to us. Hooray!</div>
 	<div style="text-align: center;">
 	<button class="button round" onclick="document.getElementById('upload-btn').style.display='block'" style="width: auto;margin: 2% auto;">UPLOAD IMAGES</button>
 </div>
