@@ -62,7 +62,6 @@
                             var li = document.createElement('li');
                             $('#show_albums ul').append(li);
                             var url = 'api/acquisitions/' + acq._id + '/files/' + f.name + '?ticket=';
-                            var info_acq = acq._info;
                             $.ajax({
                                 'type': 'GET',
                                 'url': url,
@@ -74,8 +73,8 @@
                                 var p = document.createElement('p');
                                 // var for_p = 'api/acquisitions/' + acq._id + '/files/' + f.name
                                 console.log("text");
-                                var metadata = apiURL + '?info=true';
-                                console.log(metadata);
+                                // var metadata = apiURL + '?info=true';
+                                // console.log(metadata);
 
                                 p.innerHTML = f.name;
                                 p.className += " imgDescription";
@@ -83,8 +82,16 @@
                                 div.className += " imgWrap";
                                 img.src = url + content.ticket;
                                 div.append(p);
-                                div.append(img)
+                                div.append(img);
                                 li.append(div);
+
+                                $.ajax({
+                                	'type': 'GET',
+                                	'url': apiURL + '?info=true',
+                                	'headers': headersAPI
+                                }).then((content)=>{
+                                	console.log(content);
+                                });
                             });
                         }
                     });
