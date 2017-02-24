@@ -209,6 +209,7 @@
 
   .imgWrap {
     position: relative;
+    text-align: left;
     height: 200px;
     width: 257px;
   }
