@@ -45,8 +45,6 @@
 
 			// <!-------------------FEB 17--------------->
 
-            // load images
-
             var apiURL = 'api/sessions/' + sessionId + '/acquisitions';
             $.ajax({
                 'type': 'GET',
@@ -65,6 +63,7 @@
                         if (f.type == 'image') {
                             var li = document.createElement('li');
                             $('#show_albums ul').append(li);
+                            console.log(acq._id);
                             var url = 'api/acquisitions/' + acq._id + '/files/' + f.name + '?ticket=';
                             $.ajax({
                                 'type': 'GET',
