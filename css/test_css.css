@@ -1,0 +1,107 @@
+.header {
+    text-align: left;
+    background: #628ac1;
+    background-size: cover;
+    position: relative;
+    overflow: visible;
+  }  
+  .hero {
+    background: url("http://68.media.tumblr.com/31d3712da04657b9c87f3219342b8cff/tumblr_inline_o6a7dr1bzj1t3kw0f_540.gif") no-repeat center center;
+    background-size: cover;
+    height: 50vh; 
+  }
+  .hero .intro {
+    padding: 3rem;
+    position: relative;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    letter-spacing: -0.025em;
+    font-weight: 300;
+    text-align: center; 
+  }
+  .hero p {
+    color: #fff;
+    line-height: 1.75em;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 2rem; 
+  }
+  .hero .tech-img { 
+    background: url("http://nobrow.net/wp-content/uploads/2013/10/FEB-Author-ProfilePic-JohnMartz1.jpg") no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto; 
+  }
+  @media only screen and (min-width: 40.063em) {
+    .hero .tech-img {
+      height: 8rem;
+      width: 8rem; 
+    }
+    .hero h1 {
+      padding-top: 4.5rem;
+      text-align: right;
+      font-size: 2.5rem; 
+    }
+    .hero p {
+      text-align: right; 
+    } 
+  }
+
+
+
+  .album_name {
+    color: black; 
+    font-weight: 400;
+    font-family: "Avenir Next" !important;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .meta_data {
+    font-weight: 300;
+    font-family: "Avenir Next" !important;
+    /*margin-top: .2rem;*/
+    /*margin-bottom: .5rem;*/
+    /*line-height: 1.4;*/
+    color: black;
+    font-size: 0.8rem;
+  }
+  .top-bar {
+    background: #628ac1;
+  }
+  .dropdown li {
+    background: #628ac1;
+    font-family: "Avenir Next" !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+  .header .dropdown li a {
+    background: #628ac1;
+    color: #ffe;
+    font-weight: bold;
+    font-family: "Avenir Next" !important;
+    font-size: 1rem;
+    /*margin: px;*/
+    text-transform: uppercase;
+  }
+  .header .dropdown .menu-text{
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #ffe;
+  }
+  .menu-text{
+    font-weight: 600;
+    color: yellow;
+  }
+  .dropdown li a {
+    background: #628ac1;
+    color: #ffe;
+    font-weight: 500;
+    font-family: "Avenir Next" !important;
+    font-size: 0.9rem;
+    /*margin: px;*/
+    text-transform: uppercase;
+  }
