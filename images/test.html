@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title></title>
+  <link rel="stylesheet" href="./test_files/foundation.css">
+  <link rel="stylesheet" href="./test_files/app.css">
+  <link rel="stylesheet" type="text/css" href="./test_files/foundation.min.css">
+
+<style type="text/css">
+  .header {
+    text-align: left;
+    background: #628ac1;
+    background-size: cover;
+    position: relative;
+    overflow: visible;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-bottom: 3rem; 
+  }
+  .header .headline {
+    color: #ffe; 
+    font-family: "Avenir Next" !important;
+  }
+  .header {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
+
+  .headline .header-subnav {
+    float:left;
+    width: auto;
+  }
+
+  .headline .header-subnav li a{
+    display: inline;
+  }
+/** {
+    margin: 0px;
+    padding: 0px;
+}
+.headline {
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    margin-top: 10px;
+    ;
+}
+.headline .navbar {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    width: auto;
+    height: 60px;
+    background-color: yellow;
+    list-style: none;
+}
+.headline .navbar li {
+    display: inline;
+}
+.headline .navbar li a {
+    text-decoration: none;
+    line-height: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.headline .facebook {
+    width: 60px;
+    height: 60px;
+    margin-right: 5%;
+    float: right;
+}*/
+
+
+  .header-subnav {
+    /*float: none;*/
+    /*position: absolute;*/
+    text-align: middle;
+    margin: 0 auto;
+    bottom: 0;
+    /*width: 100%; */
+  }
+  .header-subnav li {
+    float: none;
+    display: inline-block; 
+  }
+  .header-subnav li button {
+    padding: 0.9rem 0.8rem;
+    font-size: 0.75rem;
+    color: #ffe;
+    text-transform: uppercase;
+    /*display: block;*/
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.35s ease-in-out; 
+  }
+  .header-subnav li a {
+    padding: 0.9rem 0.8rem;
+    font-size: 0.75rem;
+    color: #ffe;
+    text-transform: uppercase;
+    /*display: block;*/
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.35s ease-in-out; 
+  }
+  .header-subnav li button:hover {
+    background: rgba(250, 250, 250, 0.15);
+    transition: all 0.35s ease-in-out; 
+  }
+  .header-subnav li a.is-active {
+    background: rgba(250, 250, 250, 0.15); 
+  }
+  .header-subnav li a:hover {
+    background: rgba(250, 250, 250, 0.15);
+    transition: all 0.35s ease-in-out; 
+  }
+
+
+  
+  .hero {
+    background: url("http://68.media.tumblr.com/31d3712da04657b9c87f3219342b8cff/tumblr_inline_o6a7dr1bzj1t3kw0f_540.gif") no-repeat center center;
+    background-size: cover;
+    height: 50vh; 
+  }
+/*  .hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+    opacity: .8; 
+  }*/
+  .hero .intro {
+    padding: 3rem;
+    position: relative;
+    /*top: 50%;*/
+    /*transform: translateY(-50%); */
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    letter-spacing: -0.025em;
+    font-weight: 300;
+    text-align: center; 
+  }
+  .hero p {
+    color: #fff;
+    line-height: 1.75em;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 2rem; 
+  }
+  /*Circle Image*/
+  .hero .tech-img { 
+    background: url("http://nobrow.net/wp-content/uploads/2013/10/FEB-Author-ProfilePic-JohnMartz1.jpg") no-repeat center center;
+    background-size: cover;
+    /*height: 9rem;*/
+    /*width: 9rem;*/
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto; 
+  }
+  @media only screen and (min-width: 40.063em) {
+    .hero .tech-img {
+      height: 8rem;
+      width: 8rem; 
+    }
+    .hero h1 {
+      padding-top: 4.5rem;
+      text-align: right;
+      font-size: 2.5rem; 
+    }
+    .hero p {
+      text-align: right; 
+    } 
+  }
+</style><style type="text/scss">
+  $header-bg: #074E68;
+  $subnav-link-padding: 0.9rem;
+  $subnav-font-size: 0.75rem;
+  $subnav-link-opacity: 0.15;
+  $header-height: 2.5rem;
+  $transition: all .35s ease-in-out;
+
+  .header {
+    text-align: center;
+    background: $header-bg;
+    background-size: cover;
+    position: relative;
+    overflow: visible;
+    padding-top: $header-height;
+    padding-bottom: $header-height + ($subnav-link-padding * 2 + $subnav-font-size - 0.15rem);
+    
+    .headline {
+      color: #ffe;
+    }
+  }
+  .header-subnav {
+    float: none;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    bottom: 0;
+    width: 100%;
+
+    li {
+      float: none;
+      display: inline-block;
+
+      a {
+        padding: $subnav-link-padding 1rem;
+        font-size: $subnav-font-size;
+        color: #ffe;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: $transition;
+        
+        &.is-active {
+          background: rgba(250,250,250,$subnav-link-opacity);
+        }
+
+        &:hover {
+          background: rgba(250,250,250,$subnav-link-opacity);
+          transition: $transition;
+        }
+      }
+    }
+  }
+</style></head>
+
+
+<body>
+<link href="./test_files/foundation-icons.css" rel="stylesheet">
+
+
+
+<section class="hero">
+  
+    <header class="header">
+      <div class="headline">
+        <strong style="float: left; font-weight: 300;">REEFSOURCE</strong>
+        <ul class="header-subnav">
+          <li style="padding-left: 2rem;"><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#" class="is-active">You</a></li>
+          <li><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">Explore</a></li>
+          <li><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">Data</a></li>
+          <li><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">Team</a></li>
+          <li><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="row intro">
+      <div class="large-4 columns">
+        <p></p>
+        <p></p>
+        <div class="tech-img"></div>
+      </div>
+      <div class="large-8 columns">
+        <h1>Know More About Coral Reefs?</h1>
+        <p>Don't wait to contribute photos to us! We'll send you back the health status of coral reefs.</p>
+      </div>
+  </div>
+</section>
+
+<style type="text/css">
+  .album_name {
+    color: black; 
+    font-weight: 400;
+    font-family: "Avenir Next" !important;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .meta_data {
+    font-weight: 300;
+    font-family: "Avenir Next" !important;
+    /*margin-top: .2rem;*/
+    /*margin-bottom: .5rem;*/
+    /*line-height: 1.4;*/
+    color: black;
+    font-size: 0.8rem;
+  }
+  .top-bar {
+    background: #628ac1;
+  }
+  .dropdown li {
+    background: #628ac1;
+    font-family: "Avenir Next" !important;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .menu-text{
+    font-weight: 600;
+    color: yellow;
+  }
+
+</style>
+
+<section>
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+  <!-- <header class="header" style="padding-left: 10vw; padding-right: 10vw;"> -->
+      <!-- <div class="headline" style="padding-top: 0;"> -->
+      <ul class="dropdown menu" data-dropdown-menu="">
+        <!-- <ul class="header-subnav"> -->
+        <li class="menu-text">Gallery</li>
+        <li><a style="background-color: #d6d66a; border-radius: 5%; margin-right: 5vw;color: white; font-weight: 800;"> + Album</a></li>
+        <li>
+          <a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">sort</a>
+        </li>
+        <li><a href="file:///Users/lindashen/Desktop/MAGIC%20GRANT/test.html#">refine</a></li>
+
+      </ul>
+    </div>
+  </div>
+      <!-- </div> -->
+    <!-- </header> -->
+  <!-- </header> -->
+
+  <div style="padding-left: 15vw; padding-right: 15vw;">
+    <div class="row small-up-2 medium-up-3">
+
+      <div class="column">
+        <div class="card">
+          <img src="./test_files/table_culture_poscilo_sp_low-n2woe7shgnywthgt7s6wi888ht4el45nxfcpr2sl8o.jpg">
+          <div class="card-section">
+            <h4 class="album_name">PUT ALBUM NAME HERE</h4>
+            <p class="meta_data">It has an easy to override visual style, and is appropriately subdued.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="card">
+          <img src="./test_files/table_culture_poscilo_sp_low-n2woe7shgnywthgt7s6wi888ht4el45nxfcpr2sl8o.jpg">
+          <div class="card-section">
+            <h4 class="album_name">PUT ALBUM NAME HERE</h4>
+            <p class="meta_data">It has an easy to override visual style, and is appropriately subdued.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="card">
+          <img src="./test_files/table_culture_poscilo_sp_low-n2woe7shgnywthgt7s6wi888ht4el45nxfcpr2sl8o.jpg">
+          <div class="card-section">
+            <h4 class="album_name">PUT ALBUM NAME HERE</h4>
+            <p class="meta_data">It has an easy to override visual style, and is appropriately subdued.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="./test_files/table_culture_poscilo_sp_low-n2woe7shgnywthgt7s6wi888ht4el45nxfcpr2sl8o.jpg">
+          <div class="card-section">
+            <h4 class="album_name">PUT ALBUM NAME HERE</h4>
+            <p class="meta_data">It has an easy to override visual style, and is appropriately subdued.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column">
+        <div class="card">
+          <img src="./test_files/table_culture_poscilo_sp_low-n2woe7shgnywthgt7s6wi888ht4el45nxfcpr2sl8o.jpg">
+          <div class="card-section">
+            <h4 class="album_name">PUT ALBUM NAME HERE.</h4>
+            <p class="meta_data">It has an easy to override visual style, and is appropriately subdued.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+
+
+
+
+</body></html>
